@@ -32,4 +32,10 @@ De projectinstellingen staan in `.codex/config.toml`; uitleg en beperkingen in `
 
 ## Projectspecifieke aanvullingen
 
-Na `$setup`: vul hier de gekozen bouwstenen en geverifieerde commando's om te ontwikkelen, testen en bouwen aan. Bedenk geen commando's voordat het framework is gekozen en aangemaakt. Zet hier geen lijst van wat getest moet worden.
+- Doel: een interactieve cursus in slidevorm voor leerlingen van de derde graad houtbewerking, van materiaalkennis tot het maken en afwerken van een nachttafel.
+- Platform en bouwstenen: een website met React en Vite, zodat leerlingen via een gewone weblink de cursus stap voor stap kunnen doorlopen.
+- Opslag: de laatst bekeken stap en afgewerkte stappen blijven in het browsergeheugen op dezelfde computer en in dezelfde browser. Geen accounts, backend of persoonsgegevens in de eerste versie.
+- Vormgeving: gebruik `design-system/` en de afspraken in `design-system/README.md`.
+- Publicatie: GitHub Pages; bij het aanmaken van de app wordt automatische publicatie na elke merge naar `main` ingericht.
+- Projecteisen: een nachttafel met één deur en één lade, bij voorkeur met Blum-beslag, maximaal 500 mm breed × 500 mm diep × 700 mm hoog. Exacte constructie en beslagkeuze volgen bij de technische uitwerking, op basis van de bijbehorende fabrikantdocumentatie.
+- Ontwikkelen, testen en bouwen: er is nog geen app, `package.json` of testinrichting. Er zijn daarom nog geen geverifieerde commando's. Voeg de concrete commando's hier pas toe nadat React en Vite zijn aangemaakt en de commando's werkelijk zijn uitgevoerd. Maak voor deze documentatietaak geen applicatiecode aan.
