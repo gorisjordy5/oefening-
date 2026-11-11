@@ -1,4 +1,27 @@
-# Mijn eerste echte project
+# Stap voor stap een nachttafel maken
+
+Een cursuswebsite voor leerlingen van de derde graad houtbewerking, gemaakt met React en Vite. De eerste versie bevat een startpagina met het project, een schematische nachttafel en de maximale buitenmaten. Cursusstappen en voortgang volgen later.
+
+## Lokaal werken
+
+Gebruik Node.js 22.22.2 of hoger binnen versie 22, of een versie die voldoet aan `engines` in `package.json`.
+
+| Doel | Commando |
+|---|---|
+| Pakketten installeren vanuit het lockbestand | `npm ci` |
+| Website lokaal starten | `npm run dev` |
+| Werkingstest | `npm test` |
+| Testbrowser installeren | `npx playwright install --no-shell chromium` |
+| Echte browsertests, desktop en 320 px breed | `npm run test:e2e` |
+| Productieversie bouwen naar `dist/` | `npm run build` |
+
+De ontwikkelserver toont het lokale webadres. De productiebuild en tests gebruiken de bestaande huisstijl uit `design-system/`. Er is geen backend of account. De PR-workflow installeert via het lockbestand, voert tests uit en bouwt de website; publicatie volgt in een afzonderlijke taak. Er is nog geen formatter of linter ingesteld.
+
+Lokale verificatie: `npm ci` is uitgevoerd. Omdat de bestaande Windows-sessie Node niet in het zoekpad had, zijn de Vite-, Vitest- en Playwright-entrypoints rechtstreeks gestart met `C:/Program Files/nodejs/node.exe`; dit zijn dezelfde programma's achter de scripts hierboven. Open na een nieuwe Node-installatie een nieuwe terminal voor de gewone npm-commando's.
+
+Resultaat: één Vitest-test en vier Playwright-tests geslaagd; productiebuild geslaagd. De vier browsertests zijn lokaal met de geïnstalleerde Edge uitgevoerd via een tijdelijke configuratie: de gedownloade Chromium gaf bij processtart `spawn UNKNOWN`. De PR-workflow controleert dezelfde tests met Chromium op Linux. Desktop en 320 px zijn ook visueel nagekeken. De browsercontrole start de echte Vite-server en controleert inhoud, navigatie, focus en horizontale overloop.
+
+## Oorspronkelijke projecttemplate
 
 Dit is een startpunt voor een eigen app of website die je met AI bouwt. Je hebt geen programmeerervaring nodig. De AI schrijft de code; deze template zorgt ervoor dat je project een solide basis krijgt en dat je er later zelfstandig mee verder kan.
 
