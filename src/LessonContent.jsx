@@ -1,4 +1,5 @@
 import { design as d, innerWidth, drawerWidth, parts, sources } from './design.js';
+import WorkshopLesson from './WorkshopLesson.jsx';
 
 function Exercise({ goal, question, answer }) {
   return <section className="lesson-exercise"><h4>Opdracht · {goal}</h4><p>{question}</p><details><summary>Bekijk antwoord en bespreekcriteria</summary><p>{answer}</p><p className="small">Bespreek je redenering met je leerkracht. Je antwoord wordt niet opgeslagen.</p></details></section>;
@@ -77,5 +78,5 @@ export default function LessonContent({ id }) {
   if (id === 'materiaal-verkennen') return <Materials />;
   if (id === 'materiaal-vergelijken') return <MaterialChoice />;
   if (id === 'voorbereiding-tekening') return <Preparation />;
-  return <p className="sample-note small">Voorbeeldinhoud · De volledige cursus wordt nog aangevuld.</p>;
+  return <WorkshopLesson id={id} />;
 }

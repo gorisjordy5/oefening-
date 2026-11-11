@@ -13,7 +13,7 @@ test('eerste, laatste en onbekende stap blijven binnen de cursus', () => {
   expect(adjacentStep('onbekend', 1)).toBeUndefined();
 });
 test('voortgang telt alleen unieke bestaande afgewerkte stappen', () => {
-  expect(progress([])).toEqual({ count: 0, total: 7, percent: 0 });
-  expect(progress([steps[0].id, steps[0].id, 'onbekend'])).toEqual({ count: 1, total: 7, percent: 14 });
+  expect(progress([])).toEqual({ count: 0, total: steps.length, percent: 0 });
+  expect(progress([steps[0].id, steps[0].id, 'onbekend'])).toEqual({ count: 1, total: steps.length, percent: Math.round(100 / steps.length) });
   expect(progress(steps.map(step => step.id)).percent).toBe(100);
 });
