@@ -1,6 +1,9 @@
 import logo from '../design-system/assets/Logos/arcadia-logo.svg';
+import { useState } from 'react';
+import Course from './Course.jsx';
 
 export default function App() {
+  const [courseOpen, setCourseOpen] = useState(false);
   return <>
     <a className="skip-link" href="#inhoud">Ga naar de inhoud</a>
     <header className="course-header">
@@ -15,6 +18,7 @@ export default function App() {
           <p className="lead">Een eigen meubel begint met een goed plan. In deze cursus leer je hoe je een nachttafel voorbereidt, maakt en afwerkt.</p>
           <p>Voor leerlingen van de derde graad houtbewerking.</p>
           <a className="ai-btn ai-btn--primary" href="#project">Ontdek het project <span aria-hidden="true">↓</span></a>
+          <a className="ai-btn ai-btn--primary course-start" href="#cursus" onClick={() => setCourseOpen(true)}>Open de cursus →</a>
         </div>
         <figure className="furniture">
           <svg viewBox="0 0 360 380" role="img" aria-labelledby="kast-titel" aria-describedby="kast-beschrijving">
@@ -40,6 +44,7 @@ export default function App() {
           <article className="project-card"><h3 className="h3">Wat volgt er?</h3><p>De cursus wordt verder aangevuld met stappen, opdrachten en uitleg over veilig werken. Constructie en beslag worden later bepaald, bij voorkeur met Blum-beslag.</p></article>
         </div>
       </section>
+      {courseOpen && <Course />}
     </main>
     <footer className="course-footer small">Arcadia · Leren door te maken</footer>
   </>;

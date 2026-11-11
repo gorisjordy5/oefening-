@@ -24,6 +24,26 @@ main, .course-header, .course-footer { max-width: var(--content-max); margin: au
 .skip-link { position: absolute; left: var(--space-4); top: var(--space-4); padding: var(--space-3); background: var(--surface); color: var(--forest); transform: translateY(-200%); z-index: 1; }
 .skip-link:focus { transform: translateY(0); }
 :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.course-start { margin-left: var(--space-3); }
+.course-section { padding: var(--space-7) var(--space-5); border-top: 1px solid var(--line); }
+.course-summary progress { width: 100%; accent-color: var(--brand); }
+.course-layout { display: grid; grid-template-columns: minmax(220px, 1fr) minmax(0, 2fr); gap: var(--space-5); align-items: start; }
+.chapter-overview, .course-slide { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: var(--space-5); min-width: 0; overflow-wrap: anywhere; }
+.course-slide { box-shadow: var(--shadow-card); }
+.chapter-overview ol, .chapter-overview ul { padding-left: var(--space-4); }
+.chapter-overview li { margin-bottom: var(--space-3); }
+.chapter-button, .step-button { font: inherit; color: var(--forest); background: transparent; border: 1px solid transparent; border-radius: var(--radius-sm); text-align: left; padding: var(--space-2); cursor: pointer; width: 100%; }
+.chapter-button { font-weight: 700; }
+.step-button span { display: block; color: var(--ink-muted); }
+.step-button[aria-current], .chapter-button[aria-current] { border-color: var(--line-strong); background: var(--surface-sunken); }
+.step-button[aria-current] { border-left: 4px solid var(--brand); }
+.step-navigation { display: flex; justify-content: space-between; gap: var(--space-3); margin-top: var(--space-6); flex-wrap: wrap; }
+.ai-btn:disabled { opacity: .5; cursor: default; }
+.sample-note { color: var(--ink-muted); margin: var(--space-5) 0; }
+@media (max-width: 720px) {
+  .course-layout { grid-template-columns: 1fr; }
+  .course-start { margin-left: 0; }
+}
 @media (max-width: 720px) {
   .intro { grid-template-columns: 1fr; padding-top: var(--space-7); gap: var(--space-6); }
   .intro h1 { font-size: 40px; line-height: 1.1; }
