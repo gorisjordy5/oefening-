@@ -37,7 +37,10 @@ Gebruikt het design system in `design-system/`. De gebruiker kan later een ander
 - Een kastje met een deur en met één schuif erin verwerkt, liefst van het merk Blum voor het beslag.
 - Maximale buitenmaten: 500 mm breed × 500 mm diep × 700 mm hoog.
 - Onthouden waar de leerling zat; leerlingen blijven dezelfde computer gebruiken.
-- Exacte houtsoort, constructie, werkmaten en Blum-beslag worden later bij de technische uitwerking bepaald. Montagegegevens volgen dan de documentatie van het gekozen beslag.
+- Het uitgewerkte referentieontwerp uit issue #8 is een keuze voor controle door de leerkracht: berkenmultiplex, kast/fronten 18 mm, ladebak 16 mm en opgelegde rug 6 mm. Buitenmaat 480 × 452 × 650 mm inclusief 2 mm afstand achter de fronten; met knoppen van maximaal 30 mm uitsteek is de diepte maximaal 482 mm.
+- Kast: stompe gelijmde en geschroefde naden, binnenbreedte 444 mm, kastdiepte 426 mm. Deur 476 × 446, ladefront 476 × 198; 2 mm voegen. Schot bovenzijde op 450 mm. Ladebak 419 breed × 400 diep × 116 hoog, bodem onderkant op 475 mm.
+- Beslag: één set Blum STANDARD 230M4000 zonder extra BLUMOTION, twee scharnieren 71B3550 met twee platen 173H7100. Officiële bronlinks en raadpleegdatum staan in `src/design.js`; aanzichten, zaaglijst, verbindingen en controleopdrachten in `src/LessonContent.jsx`. Het zijn eigen tekeningen. De originele fabrikantdocumenten en proefmontage met werkelijk geleverd materiaal blijven leidend.
+- De volledige cursus telt 13 stappen. De uitvoeringslessen in `src/workshop.js` en eigen schema’s in `src/WorkshopLesson.jsx` behandelen werkplek, aftekenen, zagen, verbindingen, haakse kast, ladegeleiders, deur, ladefront, schuren/blanke meubellak en eindcontrole. Machinehandelingen vragen lokale instructie en toestemming; productinstellingen komen uit het gekozen productblad. Opdrachten hebben bespreekcriteria zonder antwoord- of puntenopslag.
 
 ## Publicatie
 Via GitHub Pages, bereikbaar met een gewone weblink. Bij de bouw wordt een workflow ingericht zodat elke merge naar de hoofdbranch `main` de site automatisch publiceert. De eerste versie heeft geen backend nodig.

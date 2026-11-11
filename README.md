@@ -1,6 +1,8 @@
 # Stap voor stap een nachttafel maken
 
-Een cursuswebsite voor leerlingen van de derde graad houtbewerking, gemaakt met React en Vite. De eerste versie bevat een startpagina met het project, een schematische nachttafel en de maximale buitenmaten. Cursusstappen en voortgang volgen later.
+Een cursuswebsite voor leerlingen van de derde graad houtbewerking, gemaakt met React en Vite. De cursus heeft hoofdstukken, stapnavigatie en lokale voortgang. Materiaalkennis en voorbereiding bevatten uitleg, eigen tekeningen, opdrachten met antwoorden en een controleerbaar referentieontwerp. De overige uitvoeringslessen worden nog aangevuld.
+
+Het referentieontwerp is 480 × 452 × 650 mm (breedte × diepte × hoogte), maximaal 482 mm diep met de gekozen grens voor knopuitsteek. De leerkracht controleert de materiaal- en beslagkeuzes vóór uitvoering. Ontwerpgegevens en officiële Blum-bronnen staan in `src/design.js`; de lesinhoud staat in `src/LessonContent.jsx`. Er worden geen antwoorden of leerlinggegevens opgeslagen.
 
 ## Cursus openen
 
@@ -24,7 +26,7 @@ De ontwikkelserver toont het lokale webadres onder `/oefening-/`. De productiebu
 
 Lokale verificatie: `npm ci` is uitgevoerd. Omdat de bestaande Windows-sessie Node niet in het zoekpad had, zijn de Vite-, Vitest- en Playwright-entrypoints rechtstreeks gestart met `C:/Program Files/nodejs/node.exe`; dit zijn dezelfde programma's achter de scripts hierboven. Open na een nieuwe Node-installatie een nieuwe terminal voor de gewone npm-commando's.
 
-Resultaat: één Vitest-test en zes Playwright-tests geslaagd; productiebuild geslaagd. De browsertests zijn lokaal met de geïnstalleerde Edge uitgevoerd via een tijdelijke configuratie: de gedownloade Chromium gaf bij processtart `spawn UNKNOWN`. De PR-workflow controleert dezelfde tests met Chromium op Linux. Desktop en 320 px zijn ook visueel nagekeken. De browsercontrole start de gebouwde website via Vite Preview en controleert inhoud, navigatie, focus, horizontale overloop en opnieuw laden onder `/oefening-/`, inclusief scripts, stijlen en afbeeldingen zonder ontbrekende bestanden. De definitieve onlinecontrole volgt na de eerste merge en geslaagde publicatie.
+Lokale controle bij issue #8: 14 Vitest-tests en 16 Playwright-tests geslaagd; productiebuild geslaagd. De browsertests zijn lokaal met de geïnstalleerde Edge uitgevoerd via een tijdelijke configuratie: de gedownloade Chromium gaf bij processtart `spawn UNKNOWN`. De PR-workflow controleert dezelfde tests met Chromium op Linux. Desktop en 320 px zijn ook visueel nagekeken. De browsercontrole start de gebouwde website via Vite Preview en controleert inhoud, navigatie, focus, horizontale overloop en opnieuw laden onder `/oefening-/`, inclusief scripts, stijlen en afbeeldingen zonder ontbrekende bestanden. De nieuwe ontwerpcontrole opent de materiaallessen, tekeningen, zaaglijst en antwoorden. Op 320 px blijven tekeningen en de lijst op leesbare grootte en zijn ze afzonderlijk horizontaal verschuifbaar met aanraking of toetsenbord.
 
 ## Oorspronkelijke projecttemplate
 
