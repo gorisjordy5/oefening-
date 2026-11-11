@@ -24,7 +24,7 @@ test('hoofdstukken, grenzen en expliciet afwerken', async ({ page }, testInfo) =
   await page.screenshot({ path: testInfo.outputPath('cursus.png'), fullPage: true });
   await page.reload();
   await page.getByRole('link', { name: /Open de cursus/ }).click();
-  await expect(page.getByText('Huidige positie: stap 1 van 7')).toBeVisible();
+  await expect(page.getByText('Huidige positie: stap 7 van 7')).toBeVisible();
 });
 
 test('cursus is bereikbaar met toetsenbord en zichtbare focus', async ({ page }) => {
@@ -36,8 +36,47 @@ test('cursus is bereikbaar met toetsenbord en zichtbare focus', async ({ page })
   await expect(page.getByRole('link', { name: /Open de cursus/ })).toBeFocused();
   await page.keyboard.press('Enter');
   await page.keyboard.press('Tab');
+  await page.keyboard.press('Tab');
   await expect(page.getByRole('button', { name: 'Materiaal', exact: true })).toBeFocused();
   await expect(page.getByRole('button', { name: 'Materiaal', exact: true })).toHaveCSS('outline-style', 'solid');
   await page.keyboard.press('Enter');
   await expect(page.locator('#stap-titel')).toBeFocused();
+});
+
+test('voortgang herstelt na verversen en terugkeer en reset vraagt bevestiging', async ({ page, context }) => {
+  await page.goto('./');
+  await page.getByRole('link', { name: /Open de cursus/ }).click();
+  await page.getByRole('button', { name: 'Stap afgewerkt', exact: true }).click();
+  await page.getByRole('button', { name: 'Volgende →', exact: true }).click();
+  await page.reload();
+  await page.getByRole('link', { name: /Open de cursus/ }).click();
+  await expect(page.getByText('Huidige positie: stap 2 van 7')).toBeVisible();
+  await expect(page.getByText('1 van 7 stappen afgewerkt (14%)')).toBeVisible();
+  const returning = await context.newPage();
+  await page.close();
+  await returning.goto('./');
+  await returning.getByRole('link', { name: /Open de cursus/ }).click();
+  await expect(returning.getByText('Huidige positie: stap 2 van 7')).toBeVisible();
+  returning.once('dialog', dialog => dialog.dismiss());
+  await returning.getByRole('button', { name: 'Opnieuw beginnen', exact: true }).click();
+  await expect(returning.getByText('1 van 7 stappen afgewerkt (14%)')).toBeVisible();
+  returning.once('dialog', dialog => dialog.accept());
+  await returning.getByRole('button', { name: 'Opnieuw beginnen', exact: true }).click();
+  await returning.reload();
+  await returning.getByRole('link', { name: /Open de cursus/ }).click();
+  await expect(returning.getByText('0 van 7 stappen afgewerkt (0%)')).toBeVisible();
+  await expect(returning.getByText('Huidige positie: stap 1 van 7')).toBeVisible();
+});
+
+test('geblokkeerde opslag laat navigeren en afwerken toe', async ({ page }) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(window, 'localStorage', { get() { throw new Error('blocked'); } });
+  });
+  await page.goto('./');
+  await page.getByRole('link', { name: /Open de cursus/ }).click();
+  await expect(page.getByRole('status')).toContainText('Bewaren lukt niet');
+  await page.getByRole('button', { name: 'Stap afgewerkt', exact: true }).click();
+  await page.getByRole('button', { name: 'Volgende →', exact: true }).click();
+  await expect(page.getByText('Huidige positie: stap 2 van 7')).toBeVisible();
+  await expect(page.getByText('1 van 7 stappen afgewerkt (14%)')).toBeVisible();
 });
