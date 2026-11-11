@@ -1,10 +1,10 @@
 export const chapters = [
   { id: 'materiaal', title: 'Materiaal', steps: [
-    { id: 'materiaal-verkennen', title: 'Hout en plaatmateriaal verkennen', text: 'Bekijk enkele stalen hout en plaatmateriaal. Beschrijf wat je ziet aan het oppervlak en aan de rand. De volledige materiaalles wordt later toegevoegd.' },
-    { id: 'materiaal-vergelijken', title: 'Materialen vergelijken', text: 'Leg twee stalen naast elkaar. Welke verschillen zie je? Noteer een vraag die je aan je leerkracht wilt stellen.' },
+    { id: 'materiaal-verkennen', title: 'Hout en plaatmateriaal verkennen', text: 'Leerdoel: je herkent massief hout, multiplex, MDF en spaanplaat en legt uit wat vezelrichting doet met de maatvastheid.' },
+    { id: 'materiaal-vergelijken', title: 'Materialen vergelijken', text: 'Leerdoel: je onderbouwt de materiaalkeuze van onze nachttafel met eigenschappen, toepassingen en beperkingen.' },
   ] },
   { id: 'voorbereiding', title: 'Werktekening en voorbereiding', steps: [
-    { id: 'voorbereiding-tekening', title: 'Het project bekijken', text: 'Zoek de deur en de lade op de projectschets. Een schets toont het idee; voor de uitvoering volgen later een werktekening en een materiaallijst.' },
+    { id: 'voorbereiding-tekening', title: 'Het project bekijken', text: 'Leerdoel: je verbindt de aanzichten, maatvoering, verbindingen, zaaglijst en beslagkeuze van één referentieontwerp.' },
   ] },
   { id: 'veiligheid', title: 'Gereedschappen en veiligheid', steps: [
     { id: 'veiligheid-overleg', title: 'Je werkplek voorbereiden', text: 'Bespreek met je leerkracht welke gereedschappen je nodig hebt en welke werkplaatsafspraken gelden. Deze voorbeeldstap is geen instructie om zelfstandig een machine te gebruiken.' },

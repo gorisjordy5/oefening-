@@ -41,7 +41,7 @@ export default function App() {
         <div className="project-grid">
           <article className="project-card"><h3 className="h3">Wat maak je?</h3><p>Een nachttafel met één deur en één lade. Je werkt van materiaalkennis en tekening naar montage en afwerking.</p></article>
           <article className="project-card"><h3 className="h3">Hoe groot wordt het?</h3><p>Maximale buitenmaten: <strong>500 × 500 × 700 mm</strong> (breedte × diepte × hoogte).</p></article>
-          <article className="project-card"><h3 className="h3">Wat volgt er?</h3><p>De cursus wordt verder aangevuld met stappen, opdrachten en uitleg over veilig werken. Constructie en beslag worden later bepaald, bij voorkeur met Blum-beslag.</p></article>
+          <article className="project-card"><h3 className="h3">Wat volgt er?</h3><p>Start met materiaalkennis en het referentieontwerp van 480 × 452 × 650 mm met Blum-beslag. De uitvoeringslessen over veilig werken, montage en afwerking worden verder aangevuld.</p></article>
         </div>
       </section>
       {courseOpen && <Course />}

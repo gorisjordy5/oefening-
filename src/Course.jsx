@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { adjacentStep, chapters, progress, steps } from './course.js';
 import { emptyProgress, readProgress, writeProgress } from './storage.js';
+import LessonContent from './LessonContent.jsx';
 
 export default function Course() {
   const [state, setState] = useState(readProgress);
@@ -47,7 +48,7 @@ export default function Course() {
         <p className="small">Huidige positie: stap {position} van {steps.length}</p>
         <h3 id="stap-titel" ref={heading} tabIndex={-1} className="h2">{current.title}</h3>
         <p>{current.text}</p>
-        <p className="sample-note small">Voorbeeldinhoud · De volledige cursus wordt nog aangevuld.</p>
+        <LessonContent key={currentId} id={currentId} />
         <button className="ai-btn ai-btn--primary" aria-pressed={done} onClick={() => update({ currentId, completed: done ? completed.filter(id => id !== currentId) : [...completed, currentId] })}>{done ? 'Stap weer openzetten' : 'Stap afgewerkt'}</button>
         <div className="step-navigation" aria-label="Stapnavigatie">
           <button className="ai-btn ai-btn--secondary" disabled={!adjacentStep(currentId, -1)} onClick={() => navigate(adjacentStep(currentId, -1).id)}>← Vorige</button>
