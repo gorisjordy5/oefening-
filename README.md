@@ -2,6 +2,10 @@
 
 Een cursuswebsite voor leerlingen van de derde graad houtbewerking, gemaakt met React en Vite. De eerste versie bevat een startpagina met het project, een schematische nachttafel en de maximale buitenmaten. Cursusstappen en voortgang volgen later.
 
+## Cursus openen
+
+[Open de cursus](https://gorisjordy5.github.io/oefening-/). Leerlingen hebben geen account nodig. Elke merge naar `main` bouwt en publiceert de website automatisch via GitHub Actions. De workflow **Cursus publiceren** toont de voortgang; de link werkt zodra de eerste publicatie geslaagd is. GitHub Pages gebruikt GitHub Actions als bron.
+
 ## Lokaal werken
 
 Gebruik Node.js 22.22.2 of hoger binnen versie 22, of een versie die voldoet aan `engines` in `package.json`.
@@ -12,14 +16,15 @@ Gebruik Node.js 22.22.2 of hoger binnen versie 22, of een versie die voldoet aan
 | Website lokaal starten | `npm run dev` |
 | Werkingstest | `npm test` |
 | Testbrowser installeren | `npx playwright install --no-shell chromium` |
+| Voor de browsertests: productieversie bouwen | `npm run build` |
 | Echte browsertests, desktop en 320 px breed | `npm run test:e2e` |
 | Productieversie bouwen naar `dist/` | `npm run build` |
 
-De ontwikkelserver toont het lokale webadres. De productiebuild en tests gebruiken de bestaande huisstijl uit `design-system/`. Er is geen backend of account. De PR-workflow installeert via het lockbestand, voert tests uit en bouwt de website; publicatie volgt in een afzonderlijke taak. Er is nog geen formatter of linter ingesteld.
+De ontwikkelserver toont het lokale webadres onder `/oefening-/`. De productiebuild en tests gebruiken de bestaande huisstijl uit `design-system/`. Er is geen backend of account. De PR-workflow installeert via het lockbestand, voert tests uit en bouwt de website. De publicatieworkflow controleert dezelfde gebouwde app voor publicatie en voorkomt overlappende publicaties. Er is nog geen formatter of linter ingesteld.
 
 Lokale verificatie: `npm ci` is uitgevoerd. Omdat de bestaande Windows-sessie Node niet in het zoekpad had, zijn de Vite-, Vitest- en Playwright-entrypoints rechtstreeks gestart met `C:/Program Files/nodejs/node.exe`; dit zijn dezelfde programma's achter de scripts hierboven. Open na een nieuwe Node-installatie een nieuwe terminal voor de gewone npm-commando's.
 
-Resultaat: één Vitest-test en vier Playwright-tests geslaagd; productiebuild geslaagd. De vier browsertests zijn lokaal met de geïnstalleerde Edge uitgevoerd via een tijdelijke configuratie: de gedownloade Chromium gaf bij processtart `spawn UNKNOWN`. De PR-workflow controleert dezelfde tests met Chromium op Linux. Desktop en 320 px zijn ook visueel nagekeken. De browsercontrole start de echte Vite-server en controleert inhoud, navigatie, focus en horizontale overloop.
+Resultaat: één Vitest-test en zes Playwright-tests geslaagd; productiebuild geslaagd. De browsertests zijn lokaal met de geïnstalleerde Edge uitgevoerd via een tijdelijke configuratie: de gedownloade Chromium gaf bij processtart `spawn UNKNOWN`. De PR-workflow controleert dezelfde tests met Chromium op Linux. Desktop en 320 px zijn ook visueel nagekeken. De browsercontrole start de gebouwde website via Vite Preview en controleert inhoud, navigatie, focus, horizontale overloop en opnieuw laden onder `/oefening-/`, inclusief scripts, stijlen en afbeeldingen zonder ontbrekende bestanden. De definitieve onlinecontrole volgt na de eerste merge en geslaagde publicatie.
 
 ## Oorspronkelijke projecttemplate
 
